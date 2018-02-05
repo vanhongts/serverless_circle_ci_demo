@@ -90,6 +90,7 @@ workflows:
   version: 2
   pytest_slsdeploy:
     jobs:
+      - slsdeploy
       - integrationtest:
           requires:
             - slsdeploy
