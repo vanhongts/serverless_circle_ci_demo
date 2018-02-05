@@ -39,7 +39,6 @@ jobs:
           key: node_modules-{{ checksum "package.json" }}
       - run:
           name: sls deploy todo_list
-          environment:
           command: |
             node_modules/.bin/sls deploy --stage dev
   integrationtest:
@@ -80,7 +79,7 @@ jobs:
           command: |
             # Now run the integration tests:
             # We will have to make the "stage" part of the table nams based on the Git branch we're working on, just like we do below for the "sls deploy"
-            echo `sls info --verbose | grep ServiceEndpoint: | cut -d ' ' -f2`
+            echo `node_modules/.bin/sls info --verbose | grep ServiceEndpoint: | cut -d ' ' -f2`
 
 
 workflows:
