@@ -80,10 +80,11 @@ jobs:
           environment:
             BASH_ENV: ~/.bashrc
           command: |
-            . venv/bin/activate
             # Now run the integration tests:
             # We will have to make the "stage" part of the table nams based on the Git branch we're working on, just like we do below for the "sls deploy"
+            echo "Hello"
             echo $MAIN_URL
+            cat ~/.bashrc
 
 
 workflows:
