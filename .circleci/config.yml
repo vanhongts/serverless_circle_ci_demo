@@ -1,0 +1,96 @@
+# Python CircleCI 2.0 configuration file
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+
+# We are using Lambda with Python 3.6; serverless needs nodejs and python
+# so use an undocumented CircleCI container that provides both.
+
+# There is not much to "build" so we should run unit tests.
+# If successful, we should deploy with config based on branch name.
+# We want to deploy when commits are made to branches with
+# branch-specific `.ini` files:
+# - develop:   dev.ini
+# - release/*: qa.ini
+# - master:    prod.ini
+# - feature/*: ${CIRCLECI_USERNAME}.ini
+
+version: 2
+
+jobs:
+  # Deploy Lambda, S3, DynamoDB needs AWS creds in Project AWS setting:
+  # https://circleci.com/gh/v-studios/vmessage-sls/edit#aws
+  slsdeploy:
+    docker:
+      - image: circleci/python:3.6.4-stretch-node
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - node_modules-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - node_modules-
+      - run:
+          name: install npm pacakges
+          command: |
+            npm install
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: node_modules-{{ checksum "package.json" }}
+      - run:
+          name: sls deploy todo_list
+          environment:
+            BASH_ENV: ~/.bashrc
+          command: |
+            node_modules/.bin/sls deploy --stage dev
+            echo 'export MAIN_URL=$(eval echo sls info --verbose | grep ServiceEndpoint: | cut -d' ' -f2)' >> ~/.bashrc
+  integrationtest:
+    docker:
+      - image: circleci/python:3.6.4-stretch-node-browsers
+
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: mkdir test-reports
+      - run:
+          name: Download Selenium
+          command: |
+            curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      - run:
+          name: Start Selenium
+          command: |
+            java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+          background: true
+      - restore_cache:
+          keys:
+          - requirements-{{ checksum "requirements.txt" }}
+          - requirements-
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: requirements-{{ checksum "requirements.txt" }}
+      - run:
+          name: run tests
+          environment:
+            BASH_ENV: ~/.bashrc
+          command: |
+            . venv/bin/activate
+            # Now run the integration tests:
+            # We will have to make the "stage" part of the table nams based on the Git branch we're working on, just like we do below for the "sls deploy"
+            echo $MAIN_URL
+
+
+workflows:
+  version: 2
+  pytest_slsdeploy:
+    jobs:
+      - integrationtest:
+          requires:
+            - slsdeploy
+
