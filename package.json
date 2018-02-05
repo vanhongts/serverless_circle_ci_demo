@@ -5,6 +5,7 @@
   "author": "hong@vietnam-cloud.vn",
   "license": "MIT",
   "dependencies": {
+    "serverless": "^1.24.1",
     "serverless-python-requirements": "^2.4.1"
   }
 }
