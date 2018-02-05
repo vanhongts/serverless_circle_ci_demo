@@ -43,7 +43,8 @@ jobs:
             BASH_ENV: ~/.bashrc
           command: |
             node_modules/.bin/sls deploy --stage dev
-            echo 'export MAIN_URL=$(eval echo sls info --verbose | grep ServiceEndpoint: | cut -d' ' -f2)' >> ~/.bashrc
+            echo 'MAIN_URL=$(eval echo `sls info --verbose | grep ServiceEndpoint: | cut -d' ' -f2`)' >> ~/.bashrc
+            cat ~/.bashrc
   integrationtest:
     docker:
       - image: circleci/python:3.6.4-stretch-node-browsers
