@@ -1,0 +1,47 @@
+[
+  {
+     "usr": "admin",
+     "pwd": "adminpass",
+     "type": 3
+  },
+  {
+     "usr": "hong",
+     "pwd": "hongpass",
+     "type": 3
+  },
+  {
+     "usr": "test1",
+     "pwd": "test1pass",
+     "type": 3
+
+  },
+  {
+     "usr": "test2",
+     "pwd": "test2pass",
+     "type": 1
+
+  },
+  {
+     "usr": "admin1",
+     "pwd": "admin1pass",
+     "type": 3
+
+  },
+  {
+     "usr": "test3",
+     "pwd": "test3pass",
+     "type": 2
+
+  },
+  {
+     "usr": "test4",
+     "pwd": "test4pass",
+     "type": 1
+
+  },
+  {
+     "usr": "admintest",
+     "pwd": "admintestpass",
+     "type": 2
+  }
+]

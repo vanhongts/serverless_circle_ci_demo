@@ -1,0 +1,231 @@
+[{
+            "guest": {
+                "customer_id": 401,
+                "email": "testguest1@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2001,
+                "email": "testhost1@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4001,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2000",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 402,
+                "email": "testguest2@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2002,
+                "email": "testhost2@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2001"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4002,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2001",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 403,
+                "email": "testguest3@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2878,
+                "email": "testhost3@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 2665,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2878",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 404,
+                "email": "testguest4@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2004,
+                "email": "testhost4@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4004,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2004",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 405,
+                "email": "testguest5@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2005,
+                "email": "testhost5@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4005,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2000",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 406,
+                "email": "testguest6@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2006,
+                "email": "testhost6@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4006,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2000",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 407,
+                "email": "testguest7@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2007,
+                "email": "testhost7@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4007,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2000",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 408,
+                "email": "testguest8@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2008,
+                "email": "testhost8@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4008,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2000",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 409,
+                "email": "testguest9@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2878,
+                "email": "testhost9@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4009,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2000",
+                "url": "www.almiraldelafont.com/"
+            }
+        },
+        {
+            "guest": {
+                "customer_id": 410,
+                "email": "testguest10@vietnam-cloud.vn",
+                "first_name": "Vaniene",
+                "last_name": "Hardy",
+                "member_number": "T128"
+            },
+            "host": {
+                "customer_id": 2010,
+                "email": "testhost10@vietnam-cloud.vn",
+                "first_name": "Paul",
+                "last_name": "Christoforou",
+                "member_number": "T2830"
+            },
+            "property": {
+                "city": "Barcelona",
+                "property_id": 4010,
+                "property_name": "Almiral de la Font",
+                "property_number": "T2000",
+                "url": "www.almiraldelafont.com/"
+            }
+        }
+]
