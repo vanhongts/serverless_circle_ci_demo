@@ -92,12 +92,33 @@ jobs:
           environment:
             BASH_ENV: ~/.bashrc
           command: |
+            . venv/bin/activate
             # Now run the integration tests:
             # We will have to make the "stage" part of the table nams based on the Git branch we're working on, just like we do below for the "sls deploy"
             echo "Doing integration test with BRANCH=${CIRCLE_BRANCH} USERNAME=${CIRCLE_USERNAME}"
-            MAIN_URL=$(eval echo `node_modules/.bin/sls info --verbose | grep ServiceEndpoint: | cut -d ' ' -f2`)
+            MAIN_URL=$(node_modules/.bin/sls info --verbose | grep ServiceEndpoint: | cut -d ' ' -f2)
             echo "The links for testing: ${MAIN_URL}"
-
+            case "${CIRCLE_BRANCH}" in
+              master)
+                echo "Testing stage prod"
+                #INQUIRY_TABLE=Inquire-prod MESSAGE_TABLE=Message-prod REGION=us-east-1 pytest integration.py --stage=prod --url=${MAIN_URL}/inquiry
+              release/*)
+                echo "Testing stage qa"
+                #INQUIRY_TABLE=Inquire-qa MESSAGE_TABLE=Message-qa REGION=us-east-1 pytest integration.py --stage=qa --url=${MAIN_URL}/inquiry
+                ;;
+              develop)
+                echo "Testing stage dev"
+                #INQUIRY_TABLE=Inquire-dev MESSAGE_TABLE=Message-dev REGION=ap-southeast-1 pytest integration.py --stage=dev --url=${MAIN_URL}/inquiry
+                ;;
+              feature/*)
+                echo "Testing stage ${CIRCLE_USERNAME}"
+                #INQUIRY_TABLE=Inquire-${CIRCLE_USERNAME} MESSAGE_TABLE=Message-${CIRCLE_USERNAME} REGION=ap-southeast-1 pytest integration.py --stage=${CIRCLE_USERNAME} --url=${MAIN_URL}/inquiry
+                ;;
+              *)
+                echo "ERROR: unrecognized CIRCLE_BRANCH=${CIRCLE_BRANCH}"
+                exit 1
+                ;;
+            esac
 workflows:
   version: 2
   pytest_slsdeploy:
